@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QString>
 #include <math.h>
+#include <QWheelEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,6 +24,8 @@ public:
 public slots:
     void hang(float freq);
 
+    void wheelEvent(QWheelEvent * event);
+
 private slots:
     void on_pushButton_clicked();
 
@@ -38,5 +41,9 @@ private:
         110.0,
         82.41
     };
+    float zoom=25;
+    float last_freq;
+    const float minimal_space=30,maximal_space=70;
+    int steps=1;
 };
 #endif // MAINWINDOW_H
